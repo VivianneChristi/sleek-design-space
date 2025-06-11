@@ -1,8 +1,10 @@
 
 import { ProjectCard } from "./ProjectCard";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export function ProjectsSection() {
-  const projects = [
+  const featuredProjects = [
     {
       title: "App de E-commerce Mobile",
       description: "Design completo de aplicativo mobile para e-commerce com foco na experiência do usuário, desde o onboarding até a finalização da compra.",
@@ -26,30 +28,13 @@ export function ProjectsSection() {
       technologies: ["Figma", "Webflow", "Landing Page", "A/B Testing"],
       liveUrl: "#",
       githubUrl: "#"
-    },
-    {
-      title: "App de Produtividade",
-      description: "Aplicativo mobile para gestão de tarefas e produtividade com design minimalista e foco na experiência do usuário.",
-      image: "photo-1484480974693-6ca0a78fb36b?w=500&h=300&fit=crop",
-      technologies: ["Sketch", "InVision", "Mobile Design", "Usability Testing"],
-      liveUrl: "#"
-    },
-    {
-      title: "Sistema de Design",
-      description: "Desenvolvimento de sistema de design completo com componentes reutilizáveis e documentação detalhada.",
-      image: "photo-1507003211169-0a1dd7228f2d?w=500&h=300&fit=crop",
-      technologies: ["Figma", "Design System", "Component Library", "Documentation"],
-      liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      title: "Portal Educacional",
-      description: "Redesign completo de portal educacional com foco na acessibilidade e experiência de aprendizado online.",
-      image: "photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop",
-      technologies: ["Adobe XD", "Accessibility", "User Journey", "Educational Design"],
-      liveUrl: "#"
     }
   ];
+
+  const handleViewAllProjects = () => {
+    // Navegar para a página de todos os projetos
+    window.location.href = '/projetos';
+  };
 
   return (
     <section id="projects" className="py-20 px-6">
@@ -64,8 +49,8 @@ export function ProjectsSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {featuredProjects.map((project, index) => (
             <div
               key={project.title}
               className="animate-fade-in-up"
@@ -74,6 +59,17 @@ export function ProjectsSection() {
               <ProjectCard {...project} />
             </div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Button 
+            onClick={handleViewAllProjects}
+            size="lg"
+            className="px-8 py-6 text-lg font-medium rounded-full hover-scale"
+          >
+            Ver Todos os Projetos
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </section>

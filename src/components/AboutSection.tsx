@@ -3,9 +3,20 @@ import { Award, Code, Palette, Users } from "lucide-react";
 
 export function AboutSection() {
   const skills = [
-    "Figma", "Adobe XD", "Sketch", "Adobe Creative Suite",
-    "Prototyping", "User Research", "Usability Testing", 
-    "Design Systems", "Wireframing", "Information Architecture"
+    { name: "HTML5", icon: "🌐" },
+    { name: "CSS3", icon: "🎨" },
+    { name: "JavaScript", icon: "⚡" },
+    { name: "React", icon: "⚛️" },
+    { name: "Figma", icon: "🎯" },
+    { name: "Adobe XD", icon: "📐" },
+    { name: "Sketch", icon: "✏️" },
+    { name: "Adobe Creative Suite", icon: "🎨" },
+    { name: "Prototyping", icon: "🔧" },
+    { name: "User Research", icon: "🔍" },
+    { name: "Usability Testing", icon: "📊" },
+    { name: "Design Systems", icon: "🏗️" },
+    { name: "Wireframing", icon: "📝" },
+    { name: "Information Architecture", icon: "🏛️" }
   ];
 
   const stats = [
@@ -16,7 +27,7 @@ export function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-20 px-6 bg-muted/50">
+    <section id="about" className="py-20 px-6 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -50,11 +61,11 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <div className="animate-fade-in-up flex justify-center" style={{ animationDelay: "0.2s" }}>
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop&crop=face"
-              alt="Workspace"
-              className="rounded-2xl smooth-shadow-lg w-full"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+              alt="Minha foto"
+              className="w-80 h-80 rounded-full object-cover smooth-shadow-lg"
             />
           </div>
         </div>
@@ -79,16 +90,17 @@ export function AboutSection() {
           <h3 className="text-2xl font-semibold mb-8 text-center">
             Ferramentas & Habilidades
           </h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {skills.map((skill, index) => (
-              <span
-                key={skill}
-                className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium 
-                          hover:bg-primary/20 transition-colors cursor-default animate-fade-in"
+              <div
+                key={skill.name}
+                className="flex items-center gap-3 px-4 py-3 bg-card rounded-xl smooth-shadow 
+                          hover:bg-primary/5 transition-colors cursor-default animate-fade-in border border-border/50"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                {skill}
-              </span>
+                <span className="text-2xl">{skill.icon}</span>
+                <span className="text-sm font-medium text-foreground">{skill.name}</span>
+              </div>
             ))}
           </div>
         </div>
